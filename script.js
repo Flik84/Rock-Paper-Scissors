@@ -31,11 +31,16 @@ const game = function () {
     let computerScore = 0;
     for (let i = 0; i < 5; i++) {
         const choicePrompt = prompt('Choose rock, paper or scissors: ');
-        const round = playRound(choicePrompt, getComputerChoice());
-        if (round === 'win') {
-            playerScore++;
-        } else if (round === 'lose') {
-            computerScore++;
+        if (choicePrompt === 'rock' || choicePrompt === 'paper' || choicePrompt === 'scissors') {
+            const round = playRound(choicePrompt, getComputerChoice());
+            if (round === 'win') {
+                playerScore++;
+            } else if (round === 'lose') {
+                computerScore++;
+            }
+        } else {
+            console.log("Please type 'rock', 'paper', or 'scissors'");
+            i--;
         }
     }; 
 
