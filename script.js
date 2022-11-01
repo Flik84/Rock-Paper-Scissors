@@ -50,7 +50,10 @@ const game = function () {
     } else if (computerScore > playerScore) {
         console.log('');
         console.log(`You LOSE the game ${playerScore} to ${computerScore}!`);
-    } else console.log(`This game was a DRAW, you both scored ${playerScore} points!`);
+    } else {
+        console.log('');
+        console.log(`This game was a DRAW, you both scored ${playerScore} points!`);
+    } 
 }
 
 game();
