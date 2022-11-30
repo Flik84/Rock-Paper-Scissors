@@ -1,14 +1,11 @@
 const buttons = document.querySelectorAll('.button');
 const resultsDisplay = document.querySelector('.results');
+const playerScoreDisplay = document.querySelector('#player-score');
+const computerScoreDisplay = document.querySelector('#computer-score');
 
-
-// Listens for player choice and calls function to play round
-for (const button of buttons) {
-    button.addEventListener('click', function () {
-       playRound(button.id, getComputerChoice())
-    })
-}
-
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
 
 // generates random number between 1 and 3 for computer choice (for use in game() function below)
 const getComputerChoice = function () {
@@ -35,6 +32,53 @@ if (player === 'rock' && computerSelect === 'scissors' || player === 'paper' && 
     return 'draw';
 }
 }
+
+const disableButtons = function () {
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorsBtn.disabled = true;
+}
+
+const play = function () {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (const button of buttons) {
+        button.addEventListener('click', function gameLogic () {
+            const result = playRound(button.id, getComputerChoice());
+                if (result === 'win') {
+                    playerScore++;
+                    playerScoreDisplay.textContent = `Player: ${playerScore}`;
+                    if (playerScore === 5) {
+                        resultsDisplay.textContent = `You WIN the game!!!`;
+                        disableButtons();   
+                    }  
+                } else if (result === 'lose') {
+                    computerScore++;
+                    computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+                    if (computerScore === 5) {
+                        resultsDisplay.textContent = `You LOSE the game!!!`;
+                        disableButtons();
+                    }
+                    
+                    
+                }
+    
+        })}}
+
+play();
+
+
+// Listens for player choice and calls function to play round
+
+    
+
+// if (playerScore > computerScore) resultsDisplay.textContent = `You win! Final score ${playerScore} to ${computerScore}`;
+// else if (playerScore === computerScore) resultsDisplay.textContent = `You lose! Final score ${computerScore} to ${playerScore}`;
+// else resultsDisplay.textContent = `Tie game! You both scored ${computerScore} points.`
+//     })
+// }
+
+
 
 // plays five rounds of game against computer and displays results at end
 // const game = function () {
@@ -66,5 +110,3 @@ if (player === 'rock' && computerSelect === 'scissors' || player === 'paper' && 
 //         console.log(`This game was a DRAW, you both scored ${playerScore} points!`);
 //     } 
 // }
-
-// game();
