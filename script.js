@@ -2,10 +2,12 @@ const buttons = document.querySelectorAll('.button');
 const resultsDisplay = document.querySelector('.results');
 const playerScoreDisplay = document.querySelector('#player-score');
 const computerScoreDisplay = document.querySelector('#computer-score');
+const startBtn = document.querySelector('.start-btn');
 
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
+
 
 // generates random number between 1 and 3 for computer choice (for use in game() function below)
 const getComputerChoice = function () {
@@ -44,6 +46,7 @@ const disableButtons = function () {
 const play = function () {
     let playerScore = 0;
     let computerScore = 0;
+    resultsDisplay.textContent = 'Make a selection to begin'
     for (const button of buttons) {
         button.addEventListener('click', function gameLogic () {
             const result = playRound(button.id, getComputerChoice());
@@ -68,4 +71,3 @@ const play = function () {
         })}}
 
 play();
-
