@@ -33,12 +33,14 @@ if (player === 'rock' && computerSelect === 'scissors' || player === 'paper' && 
 }
 }
 
+// makes buttons unclickable after winner declared
 const disableButtons = function () {
     rockBtn.disabled = true;
     paperBtn.disabled = true;
     scissorsBtn.disabled = true;
 }
 
+// allows player to play until player or computer reaches five wins and winner declared
 const play = function () {
     let playerScore = 0;
     let computerScore = 0;
