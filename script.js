@@ -73,7 +73,6 @@ const play = function () {
                     playerScore++;
                     playerScoreDisplay.textContent = `Player: ${playerScore}`;
                     if (playerScore === 5) {
-                        console.log(playerScore);
                         disableButtons();
                         resultsDisplay.textContent = `${playerChoice} beats ${computerChoice}, you WIN the game!!!`;        
                         }  
@@ -81,7 +80,6 @@ const play = function () {
                     computerScore++;
                     computerScoreDisplay.textContent = `Computer: ${computerScore}`;
                     if (computerScore === 5) {
-                        console.log(computerScore);
                         disableButtons();
                         resultsDisplay.textContent = `${playerChoice} loses to ${computerChoice}, you LOSE the game!!!`; 
                     }
