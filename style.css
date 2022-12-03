@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    background-color: #d0ebff;
 }
 
 .game-title {
@@ -56,9 +57,23 @@
     display: flex;
     justify-content: center;
     gap: 5rem;
+    align-items: center;
 }
 
 .score {
     font-size: 1.5  rem;
     font-weight: bold;
+}
+
+.reset {
+    padding: 1rem 2rem;
+    color: #fff;
+    background-color: #12b886;
+    font-weight: 400;
+}
+
+.reset:hover,
+.reset:active {
+    border: 2px solid #f06595;
+    font-weight: 900;
 }
