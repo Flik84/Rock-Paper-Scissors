@@ -10,6 +10,13 @@ const rockBtn = document.querySelector('#Rock');
 const paperBtn = document.querySelector('#Paper');
 const scissorsBtn = document.querySelector('#Scissors');
 
+// sounds
+const belch = new Audio('sounds/belch.wav');
+const lose = new Audio('sounds/die.wav');
+const bell = new Audio('sounds/bell.wav');
+const win = new Audio('sounds/wingame.wav');
+const tie = new Audio('sounds/dodge.wav');
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -38,12 +45,18 @@ const playRound = function (playerSelect, computerSelect) {
     const player = playerSelect;
 
 if (player === 'Rock' && computerSelect === 'Scissors' || player === 'Paper' && computerSelect === 'Rock' || player === 'Scissors' && computerSelect === 'Paper') {
+    bell.currentTime = 0;
+    bell.play();
     resultsDisplay.textContent = `You win! ${player} beats ${computerSelect}.`; 
     return 'win';
 } else if (player === 'Rock' && computerSelect === 'Paper' || player === 'Paper' && computerSelect === 'Scissors' || player === 'Scissors' && computerSelect === 'Rock') {
+    belch.currentTime = 0;
+    belch.play();
     resultsDisplay.textContent = `You lose! ${player} loses to ${computerSelect}.`; 
     return 'lose';
 } else {
+    tie.currentTime = 0;
+    tie.play();
     resultsDisplay.textContent =`Draw! You both chose ${player}.`;
     return 'draw';
 }
@@ -73,6 +86,8 @@ const play = function () {
                     playerScore++;
                     playerScoreDisplay.textContent = `Player: ${playerScore}`;
                     if (playerScore === 5) {
+                        win.currentTime = 0;
+                        win.play();
                         disableButtons();
                         resultsDisplay.textContent = `${playerChoice} beats ${computerChoice}, you WIN the game!!!`;        
                         }  
@@ -80,6 +95,8 @@ const play = function () {
                     computerScore++;
                     computerScoreDisplay.textContent = `Computer: ${computerScore}`;
                     if (computerScore === 5) {
+                        lose.currentTime = 0;
+                        lose.play();
                         disableButtons();
                         resultsDisplay.textContent = `${playerChoice} loses to ${computerChoice}, you LOSE the game!!!`; 
                     }
