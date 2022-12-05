@@ -24,8 +24,8 @@ resetBtn.addEventListener('click', function () {
     resultsDisplay.textContent = 'Make a selection to begin'
     playerScore = 0;
     computerScore = 0;
-    playerScoreDisplay.textContent = `Player: ${playerScore}`;
-    computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+    playerScoreDisplay.textContent = ` 0`;
+    computerScoreDisplay.textContent = ` 0`;
     enableButtons();
 })
 
@@ -84,7 +84,7 @@ const play = function () {
             const result = playRound(playerChoice, computerChoice);
                 if (result === 'win') {
                     playerScore++;
-                    playerScoreDisplay.textContent = `Player: ${playerScore}`;
+                    playerScoreDisplay.textContent = ` ${playerScore}`;
                     if (playerScore === 5) {
                         win.currentTime = 0;
                         win.play();
@@ -93,7 +93,7 @@ const play = function () {
                         }  
                 } else if (result === 'lose') {
                     computerScore++;
-                    computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+                    computerScoreDisplay.textContent = ` ${computerScore}`;
                     if (computerScore === 5) {
                         lose.currentTime = 0;
                         lose.play();

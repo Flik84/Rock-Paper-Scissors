@@ -61,9 +61,18 @@
 }
 
 .score {
-    font-size: 1.5  rem;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 3rem;
+
 }
+
+.digit {
+    display: inline-block;
+    font-size: 4rem;
+    font-weight: 900;
+    color: deeppink;
+}
+
 
 .reset {
     padding: 1rem 2rem;
